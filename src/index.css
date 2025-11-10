@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #22c55e;
+  --color-accent: #3b82f6;
+  --color-bg: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-muted: #9ca3af;
+
+  --font-main: "Poppins", system-ui, sans-serif;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply min-h-screen flex items-center justify-center bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-main)] antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-md mx-auto p-6 rounded-2xl bg-[var(--color-surface)] shadow-lg;
+  }
+
+  .title {
+    @apply text-3xl font-bold text-center mb-4 text-[var(--color-primary)];
+  }
+
+  .instructions {
+    @apply text-center text-[var(--color-muted)] mb-6;
+  }
+
+  .dice-grid {
+    @apply grid grid-cols-5 gap-4 mb-6;
+  }
+
+  .die {
+    @apply flex items-center justify-center text-2xl font-semibold w-12 h-12 rounded-lg cursor-pointer transition-all duration-150 bg-[var(--color-surface)] shadow-sm ;
+  }
+
+  .die:hover {
+    @apply scale-105 shadow-md;
+  }
+
+  .die:active {
+    @apply scale-95 shadow-inner;
+  }
+
+  .die.held {
+    @apply bg-[var(--color-primary)] text-white shadow-md;
+  }
+
+  .roll-btn {
+    @apply bg-[var(--color-accent)] text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-blue-600 transition;
+  }
+
+  .restart-btn {
+    @apply bg-[var(--color-primary)] text-white px-6 py-2 rounded-md font-semibold shadow hover:opacity-90 transition;
+  }
+}
