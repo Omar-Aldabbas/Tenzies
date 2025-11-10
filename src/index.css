@@ -6,7 +6,7 @@
   --color-bg: #f3f4f6;
   --color-surface: #ffffff;
   --color-text: #111827;
-  --color-muted: #9ca3af;
+  --color-muted: #6b7280;
 
   --font-main: "Poppins", system-ui, sans-serif;
   --radius-md: 0.75rem;
@@ -19,7 +19,7 @@
   }
 
   body {
-    @apply min-h-screen flex items-center justify-center bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-main)] antialiased;
+    @apply min-h-screen flex items-center justify-center bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-main)] antialiased p-4;
   }
 
   * {
@@ -29,23 +29,24 @@
 
 @layer components {
   .container {
-    @apply max-w-md mx-auto p-6 rounded-2xl bg-[var(--color-surface)] shadow-lg;
+    @apply w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto p-6 md:p-8 rounded-2xl bg-[var(--color-surface)] shadow-lg transition-all duration-200;
   }
 
   .title {
-    @apply text-3xl font-bold text-center mb-4 text-[var(--color-primary)];
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4 text-[var(--color-primary)];
   }
 
   .instructions {
-    @apply text-center text-[var(--color-muted)] mb-6;
+    @apply text-center text-sm sm:text-base md:text-lg text-[var(--color-muted)] mb-6;
   }
 
   .dice-grid {
-    @apply grid grid-cols-5 gap-4 mb-6;
+    @apply flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 
+         md:grid md:grid-cols-5 md:justify-items-center transition-all duration-200;
   }
 
   .die {
-    @apply flex items-center justify-center text-2xl font-semibold w-12 h-12 rounded-lg cursor-pointer transition-all duration-150 bg-[var(--color-surface)] shadow-sm ;
+    @apply flex items-center justify-center text-2xl sm:text-3xl font-semibold w-14 h-14 sm:w-16 sm:h-16 rounded-lg cursor-pointer transition-all duration-150 bg-[var(--color-surface)] shadow-sm;
   }
 
   .die:hover {
@@ -61,10 +62,20 @@
   }
 
   .roll-btn {
-    @apply bg-[var(--color-accent)] text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-blue-600 transition;
+    @apply bg-[var(--color-accent)] text-white 
+         px-5 py-2 sm:px-6 sm:py-3 
+         rounded-md font-semibold shadow 
+         hover:bg-blue-600 transition 
+         w-full sm:w-auto 
+         mx-auto block md:inline-block;
   }
 
   .restart-btn {
-    @apply bg-[var(--color-primary)] text-white px-6 py-2 rounded-md font-semibold shadow hover:opacity-90 transition;
+    @apply bg-[var(--color-primary)] text-white 
+         px-5 py-2 sm:px-6 sm:py-3 
+         rounded-md font-semibold shadow 
+         hover:opacity-90 transition 
+         w-full sm:w-auto 
+         mx-auto block md:inline-block;
   }
 }
