@@ -1,12 +1,9 @@
-import { Dice } from "./Dice"
-
+import { Dice } from "./Dice";
 
 export const Main = () => {
-
-    return (
-
-<main>
-    <Dice/>
-</main>
-    )
-}
+  return (
+    <main>
+      <Dice />
+    </main>
+  );
+};
